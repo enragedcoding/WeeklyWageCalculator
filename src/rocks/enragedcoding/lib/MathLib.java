@@ -21,7 +21,7 @@ public class MathLib {
      * addIncome method
      * sets the hour to the specified day
      *
-     * @param day hoursPerDay indexer
+     * @param day    hoursPerDay indexer
      * @param income the users input
      */
     public void addIncome(int day, double income) {
