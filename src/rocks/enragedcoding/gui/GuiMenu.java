@@ -7,18 +7,21 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Created by chris on 12/10/2014.
+ * @Author: chris
+ * @Date: December, 10 2014
+ * @Time: 11:11 PM
  */
 public class GuiMenu extends JFrame {
-    private final int WINDOW_WIDTH = 322, WINDOW_HEIGHT = 303, TEXT_LENGTH = 5;
-    private final String WINDOW_TITLE = "Weekly Wage Calculator";
-    private JPanel jPanel1;
     private JLabel jLabel1, jLabel2, jLabel3, jLabel4, jLabel5, jLabel6, jLabel7, jLabel8, jLabel9;
     private JTextField textField1, textField2, textField3, textField4, textField5, textField6, textField7, textField8;
     private JButton jButton1, jButton2;
 
     public GuiMenu() {
+        int WINDOW_WIDTH = 322;
+        int WINDOW_HEIGHT = 303;
+        setResizable(false);
         setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+        String WINDOW_TITLE = "Weekly Wage Calculator";
         setTitle(WINDOW_TITLE);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         constructPanel();
@@ -30,7 +33,7 @@ public class GuiMenu extends JFrame {
      * builds the panel (gui area)
      */
     private void constructPanel() {
-        jPanel1 = new JPanel();
+        JPanel jPanel1 = new JPanel();
         add(jPanel1);
         constructLabels();
         constructTexts();
@@ -81,6 +84,7 @@ public class GuiMenu extends JFrame {
         jButton1 = new JButton("Calculate");
         jButton1.addActionListener(new jButton1Click());
         jButton2 = new JButton("Reset");
+        jButton2.addActionListener(new jButton2Click());
     }
 
     /**
@@ -88,6 +92,7 @@ public class GuiMenu extends JFrame {
      * builds the text boxes
      */
     private void constructTexts() {
+        int TEXT_LENGTH = 5;
         textField1 = new JTextField(TEXT_LENGTH);
         textField2 = new JTextField(TEXT_LENGTH);
         textField3 = new JTextField(TEXT_LENGTH);
@@ -114,4 +119,20 @@ public class GuiMenu extends JFrame {
         }
     }
 
+    private class jButton2Click implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            MathLib payHandler = new MathLib();
+            payHandler.setWage(0.0);
+            textField1.setText("");
+            textField2.setText("");
+            textField3.setText("");
+            textField4.setText("");
+            textField5.setText("");
+            textField6.setText("");
+            textField7.setText("");
+            textField8.setText("");
+            jLabel8.setText("Total: $0.0");
+        }
+    }
 }

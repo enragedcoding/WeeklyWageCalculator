@@ -3,9 +3,11 @@ package rocks.enragedcoding;
 import rocks.enragedcoding.gui.GuiMenu;
 
 /**
- * Created by chris on 12/10/2014.
+ * @Author: chris
+ * @Date: December, 10 2014
+ * @Time: 11:13 PM
  */
-public class Loader {
+class Loader {
     public static void main(String[] args) {
         new GuiMenu();
     }

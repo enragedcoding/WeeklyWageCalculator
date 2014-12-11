@@ -1,11 +1,13 @@
 package rocks.enragedcoding.lib;
 
 /**
- * Created by chris on 12/10/2014.
+ * @Author: chris
+ * @Date: December, 10 2014
+ * @Time: 11:13 PM
  */
 public class MathLib {
+    private final double[] hoursPerDay;
     private double wage;
-    private double[] hoursPerDay;
     private double totalPay;
 
     /**
@@ -19,8 +21,8 @@ public class MathLib {
      * addIncome method
      * sets the hour to the specified day
      *
-     * @param day
-     * @param income
+     * @param day hoursPerDay indexer
+     * @param income the users input
      */
     public void addIncome(int day, double income) {
         hoursPerDay[(day - 1)] = income; // the -1 is to make human logic == to cpu logic
@@ -30,7 +32,7 @@ public class MathLib {
      * setWage methods
      * Sets the local wage variable
      *
-     * @param wage
+     * @param wage set users wage per hour
      */
     public void setWage(double wage) {
         this.wage = wage;
@@ -43,8 +45,8 @@ public class MathLib {
      * @return totalPay
      */
     public double getPay() {
-        for (int i = 0; i < hoursPerDay.length; i++) {
-            totalPay += hoursPerDay[i];
+        for (double aHoursPerDay : hoursPerDay) {
+            totalPay += aHoursPerDay;
         }
         totalPay = totalPay * wage;
         return totalPay;
